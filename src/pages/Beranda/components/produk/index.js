@@ -1,4 +1,18 @@
 export default function Index() {
+  const data = [
+    { tenor: '1/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '2/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '3/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '4/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '5/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '6/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '7/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '8/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '9/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '10/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '11/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' },
+    { tenor: '12/12', bayar: '1.093.000', pokok: '833.333', bunga: '259.667' }
+  ];
   return (
     <section className="container-fluid produk-wrapper">
       <div className="row">
@@ -50,7 +64,6 @@ export default function Index() {
                 <br />-{' '}
                 <strong>Sehingga total pinjaman yang diterima saat pencairan: Rp. 9.073.200</strong>
               </p>
-              {/* Table */}
               <table
                 style={{ borderCollapse: 'collapse', width: '100%', height: '313.468px' }}
                 border="1"
@@ -62,188 +75,36 @@ export default function Index() {
                   <col style={{ width: '25%' }} />
                 </colgroup>
                 <tbody>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      <strong>Tenor</strong>
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      <strong>Bayar Cicilan</strong>
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      <strong>Pokok</strong>
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      <strong>Bunga</strong>
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      1/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text0-center" style={{ height: '22.3906px;' }} height="19">
-                      2/12
-                    </td>
-                    <td className="text0-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text0-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text0-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      3/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      4/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      5/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      6/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      7/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      8/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      9/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      10/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      11/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
-                  <tr style={{ height: '22.3906px;' }}>
-                    <td className="text-center" style={{ height: '22.3906px;' }} height="19">
-                      12/12
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      1.093.000
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      833.333
-                    </td>
-                    <td className="text-center" style={{ height: '22.3906px;' }}>
-                      259.667
-                    </td>
-                  </tr>
+                <tr style={{ height: '22.3906px;' }}>
+                  <td className="text-center" style={{ height: '22.3906px;' }}>
+                    <strong>Tenor</strong>
+                  </td>
+                  <td className="text-center" style={{ height: '22.3906px;' }}>
+                    <strong>Bayar Cicilan</strong>
+                  </td>
+                  <td className="text-center" style={{ height: '22.3906px;' }}>
+                    <strong>Pokok</strong>
+                  </td>
+                  <td className="text-center" style={{ height: '22.3906px;' }}>
+                    <strong>Bunga</strong>
+                  </td>
+                </tr>
+                  {data.map((row, index) => (
+                    <tr style={{ height: '22.3906px;' }}>
+                      <td className="text-center" style={{ height: '22.3906px;' }}>
+                        {row.tenor}
+                      </td>
+                      <td className="text-center" style={{ height: '22.3906px;' }}>
+                        {row.bayar}
+                      </td>
+                      <td className="text-center" style={{ height: '22.3906px;' }}>
+                        {row.pokok}
+                      </td>
+                      <td className="text-center" style={{ height: '22.3906px;' }}>
+                        {row.bunga}
+                      </td>
+                    </tr>
+                  ))}
                   <tr style={{ height: '22.3906px;' }}>
                     <td style={{ height: '22.3906px;' }}>
                       <strong>Total</strong>
