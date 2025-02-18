@@ -42,12 +42,12 @@ export default function Index() {
             text: 'Layanan yang Bersahabat di Ratusan Cabang'
           }
         ].map((item, index) => (
-          <div key={index} className="col-6 col-md-2">
+          <div key={index} className="col-6 col-md-2 d-flex">
             <div
               style={{ background: '#f8f8f8' }}
-              className="py-2 px-1 d-flex flex-column justify-content-center text-center align-items-center"
+              className="w-100 py-2 px-1 d-flex flex-column justify-content-center text-center align-items-center"
             >
-              <Image src={item.src} alt={item.alt} className="w-75 h-75" width={100} height={100} />
+              <Image src={item.src} alt={item.alt} className="w-75" width={100} height={100} />
               <p className="text-wrap" style={{ fontSize: 'small' }}>
                 {item.text}
               </p>
