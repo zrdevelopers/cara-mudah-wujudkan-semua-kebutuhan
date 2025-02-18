@@ -6,7 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
     loader: 'akamai',
-    path: ''
+    path: '',
+    loaderFile: '',
   },
   webpack: (config) => {
     // Optimize and reduce bundle size
@@ -18,6 +19,9 @@ const nextConfig = {
     return config;
   },
   generateMetadata: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

@@ -86,7 +86,7 @@ const Index = () => {
           width={425} // Adjust width as needed
           height={425} // Adjust height as needed
           priority
-          style={{ width: '100%'}} // Ensure it scales responsively
+          style={{ width: '100%' }} // Ensure it scales responsively
         />
         <a href="#">
           <Image
