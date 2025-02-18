@@ -13,7 +13,7 @@ export default function Index() {
           <b>Keunggulan Kami</b>
         </span>
       </div>
-      <div id="syaratMudah" className="row mb-5" style={{ gridRowGap: '35px' }}>
+      <div id="syaratMudah" className="row mb-5" style={{ gridRowGap: '15px' }}>
         {[
           { src: './assets/images/syarat-mudah.png', alt: 'syarat-mudah', text: 'Syaratnya Mudah' },
           {
@@ -39,13 +39,13 @@ export default function Index() {
           {
             src: './assets/images/layanan-ratusan-cabang.png',
             alt: 'layanan-ratusan-cabang',
-            text: 'Layanan yang Bersahabat di Ratusan Cabang dan Platform Digital'
+            text: 'Layanan yang Bersahabat di Ratusan Cabang'
           }
         ].map((item, index) => (
           <div key={index} className="col-6 col-md-2">
             <div
               style={{ background: '#f8f8f8' }}
-              className="h-75 py-2 px-1 d-flex flex-column justify-content-center text-center align-items-center"
+              className="py-2 px-1 d-flex flex-column justify-content-center text-center align-items-center"
             >
               <Image src={item.src} alt={item.alt} className="w-75 h-75" width={100} height={100} />
               <p className="text-wrap" style={{ fontSize: 'small' }}>

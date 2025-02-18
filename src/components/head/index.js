@@ -10,6 +10,7 @@ const Index = (props) => {
       <Head>
         {/* Page Title */}
         <title>{title}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 
         {/* Basic metas */}
         <meta name="description" content={description} />
