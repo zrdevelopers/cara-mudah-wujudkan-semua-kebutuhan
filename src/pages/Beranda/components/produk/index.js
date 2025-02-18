@@ -75,20 +75,20 @@ export default function Index() {
                   <col style={{ width: '25%' }} />
                 </colgroup>
                 <tbody>
-                <tr style={{ height: '22.3906px;' }}>
-                  <td className="text-center" style={{ height: '22.3906px;' }}>
-                    <strong>Tenor</strong>
-                  </td>
-                  <td className="text-center" style={{ height: '22.3906px;' }}>
-                    <strong>Bayar Cicilan</strong>
-                  </td>
-                  <td className="text-center" style={{ height: '22.3906px;' }}>
-                    <strong>Pokok</strong>
-                  </td>
-                  <td className="text-center" style={{ height: '22.3906px;' }}>
-                    <strong>Bunga</strong>
-                  </td>
-                </tr>
+                  <tr style={{ height: '22.3906px;' }}>
+                    <td className="text-center" style={{ height: '22.3906px;' }}>
+                      <strong>Tenor</strong>
+                    </td>
+                    <td className="text-center" style={{ height: '22.3906px;' }}>
+                      <strong>Bayar Cicilan</strong>
+                    </td>
+                    <td className="text-center" style={{ height: '22.3906px;' }}>
+                      <strong>Pokok</strong>
+                    </td>
+                    <td className="text-center" style={{ height: '22.3906px;' }}>
+                      <strong>Bunga</strong>
+                    </td>
+                  </tr>
                   {data.map((row, index) => (
                     <tr style={{ height: '22.3906px;' }}>
                       <td className="text-center" style={{ height: '22.3906px;' }}>
