@@ -17,7 +17,7 @@ const Index = () => {
           >
             <Link href="/" className="navbar-brand">
               <Image
-                src="/assets/images/LOGO-ADIRA.png"
+                src="./assets/images/LOGO-ADIRA.png"
                 alt="Logo"
                 width={120}
                 height={30}
@@ -34,7 +34,7 @@ const Index = () => {
               }}
             >
               <Image
-                src="/assets/images/button-ajukan-header.png"
+                src="./assets/images/button-ajukan-header.png"
                 alt="Button Image"
                 width={150}
                 height={32} // Adjust height as needed
@@ -66,7 +66,7 @@ const Index = () => {
       {/* Desktop Version */}
       <div className="bannerresDesk" style={{ paddingTop: '64px', position: 'relative' }}>
         <Image
-          src="/assets/images/Maret25-SOLUSI-DANA_LP-DESKTOP.jpg"
+          src="./assets/images/Maret25-SOLUSI-DANA_LP-DESKTOP.jpg"
           alt="banner-multiguna"
           width={1400} // Adjust width as needed
           height={331} // Adjust height as needed
@@ -81,7 +81,7 @@ const Index = () => {
       {/* Mobile Version */}
       <div className="bannerresMob" style={{ paddingTop: '64px', position: 'relative' }}>
         <Image
-          src="/assets/images/Maret25-SOLUSI-DANA_LP-MOBILE.jpg"
+          src="./assets/images/Maret25-SOLUSI-DANA_LP-MOBILE.jpg"
           alt="banner-multiguna"
           width={425} // Adjust width as needed
           height={425} // Adjust height as needed
@@ -91,7 +91,7 @@ const Index = () => {
         <a href="#">
           <Image
             className="overlay"
-            src="/assets/images/button-ajukan-header-mobile.png"
+            src="./assets/images/button-ajukan-header-mobile.png"
             alt="button-ajukan-header-mobile"
             width={145} // Adjust width as needed
             height={23} // Adjust height as needed
