@@ -1835,7 +1835,7 @@ header .overlay-search img {
     padding: 0 !important;
   }
   header .adira-navbar {
-    padding: 30px 33px 14px 20px;
+    /* padding: 30px 33px 14px 20px; */
     border-bottom-right-radius: 54px;
   }
   header .adira-navbar .navbar-brand {

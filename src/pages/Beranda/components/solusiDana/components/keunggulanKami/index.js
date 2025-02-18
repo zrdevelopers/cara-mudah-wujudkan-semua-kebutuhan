@@ -54,7 +54,7 @@ export default function Index() {
       </div>
       <div id="syaratMudah" className="row mb-5" style={{ gridRowGap: '15px' }}>
         {dataKeunggulanKami.map((item, index) => (
-          <div key={index} className="col-6 col-md-2 d-flex">
+          <div key={item?.id || index} className="col-6 col-md-2 d-flex">
             <div
               style={{ background: '#f8f8f8' }}
               className="w-100 py-2 px-1 d-flex flex-column justify-content-center text-center align-items-center"

@@ -90,7 +90,7 @@ export default function Index() {
                     </td>
                   </tr>
                   {data.map((row, index) => (
-                    <tr style={{ height: '22.3906px;' }}>
+                    <tr key={row?.id || index} style={{ height: '22.3906px;' }}>
                       <td className="text-center" style={{ height: '22.3906px;' }}>
                         {row.tenor}
                       </td>

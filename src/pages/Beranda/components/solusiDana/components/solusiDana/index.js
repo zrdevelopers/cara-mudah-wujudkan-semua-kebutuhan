@@ -6,7 +6,7 @@ export default function Index() {
     // For example, you can use a ref to scroll to the desired section
     const element = document.getElementById('Appsmpl');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ top: element.offsetTop - 200, behavior: 'smooth' });
     }
   };
 

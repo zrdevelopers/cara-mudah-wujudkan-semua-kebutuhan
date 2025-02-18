@@ -12,7 +12,7 @@ export default function Document() {
         <link rel="stylesheet" href={`${domain}/assets/css/fontawesome.all.min.css`} />
         <link rel="stylesheet" href={`${domain}/assets/css/fontawesome.min.css`} />
         <link rel="stylesheet" href={`${domain}/assets/css/font-awesome.min.css`} />
-        <link rel="stylesheet" type="text/css" href={`${domain}/assets/css/style.css`} />
+        <link rel="stylesheet" type="text/css" href={`${domain}/assets/css/style.css?v=1`} />
       </Head>
       <body>
         <Main />
