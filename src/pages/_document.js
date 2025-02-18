@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
-  const domain = "https://zrdevelopers.github.io/cara-mudah-wujudkan-semua-kebutuhan";
+  const domain = process.env.NEXT_PUBLIC_DOMAIN; // Access the environment variable
 
   return (
     <Html lang="en">
