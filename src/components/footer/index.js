@@ -1,25 +1,21 @@
 const Index = () => {
-  const currentYear = new Date().getFullYear(); // Get current year dynamically
-
   return (
-    <footer className="page-footer">
-      <div className="container">
-        <div className="footer-content d-flex justify-content-between">
-          <p>&copy; 2019 - {currentYear} ZRDevelopers | All rights reserved</p>
-          <p>
-            <a href="#" data-toggle="modal" data-target="#privacy-modal">
-              Kebijakan Privasi
-            </a>{' '}
-            -{' '}
-            <a href="#" data-toggle="modal" data-target="#terms-modal">
-              Syarat &amp; Ketentuan
-            </a>
-          </p>
+    <section style={{ backgroundColor: '#D3D3D3' }} className="topbar ">
+      <div className="container-fluid mt2 pb2 ">
+        <div className="row">
+          <div className="col-md-12 fsmall centersmall text-center">
+            <ul>
+              <li className="f13 gotlight">
+                @ Adira Finance Berizin dan Diawasi oleh OTORITAS JASA KEUANGAN | Published by{' '}
+                <a href="#" target="_blank" style={{ color: '#000' }}>
+                  ZRDevelopers
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        {/* <!-- End of .footer-content --> */}
       </div>
-      {/* <!-- End of .container --> */}
-    </footer>
+    </section>
   );
 };
 

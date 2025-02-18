@@ -1,5 +1,6 @@
 import Heads from '@/components/head';
 import Beranda from '@/pages/Beranda';
+import Footer from '@/components/footer';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         // image
       />
       <Beranda />
+      <Footer />
     </>
   );
 }
