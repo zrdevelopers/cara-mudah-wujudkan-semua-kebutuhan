@@ -3,7 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-const Index = () => {
+const Index = (props) => {
+  const { onClick } = props;
+  // const btnWhatsApp = "https://api.whatsapp.com/send?phone=62881228883616&text=Halo%2C%20saya%20ingin%20pinjaman%20dana%20dengan%20data%20sebagai%20berikut%3A%20%0A%0ANama%3A%20(isi%20nama)%20%0AArea%3A%20(isi%20area)"
+
   return (
     <Fragment>
       <header className="header-2-fixed-top">
@@ -25,9 +28,9 @@ const Index = () => {
               />
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent"></div>
-            <a
+            <div
               className="navbar-brand mpl-ajukan-sekarang"
-              href="#"
+              onClick={onClick}
               style={{
                 border: 'solid #333',
                 borderRadius: '10px'
@@ -40,7 +43,7 @@ const Index = () => {
                 height={32} // Adjust height as needed
                 className="d-inline-block align-top"
               />
-            </a>
+            </div>
           </nav>
         </div>
         <div
