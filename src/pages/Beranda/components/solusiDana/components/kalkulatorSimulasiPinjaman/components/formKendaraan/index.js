@@ -10,10 +10,14 @@ export default function Index(props) {
   const [dataArea, setDataArea] = useState([]);
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
   const [dataBrands, setDataBrands] = useState([]);
+  const [dataModels, setDataModels] = useState([]);
+  const [dataYears, setDataYears] = useState([]);
+  const [dataMaxPencairan, setDataMaxPencairan] = useState([]);
+  const [dataMaxInstalments, setDataInstalments] = useState([]);
 
-  const handleChange = async() => {
+  const handleChange = async () => {
     onChange();
-  }
+  };
 
   const getDataArea = async () => {
     axios
@@ -91,6 +95,11 @@ export default function Index(props) {
             <option disabled="" value="">
               Merk...
             </option>
+            {dataBrands.map((brand, index) => (
+              <option key={index} value={brand?.id}>
+                {brand?.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="col-6 col-md-3">
@@ -104,6 +113,11 @@ export default function Index(props) {
             <option disabled="" value="">
               Tipe...
             </option>
+            {dataModels.map((model, index) => (
+              <option key={index} value={model?.id}>
+                {model?.name}
+              </option>
+            ))}
           </select>
         </div>
         <div className="col-6 col-md-3">
@@ -117,11 +131,18 @@ export default function Index(props) {
             <option disabled="" value="">
               Tahun...
             </option>
+            {dataYears.map((year, index) => (
+              <option key={index} value={year?.id}>
+                {year?.name}
+              </option>
+            ))}
           </select>
         </div>
-        <div className="col-12 pt-2 text-danger" style={{ fontSize: '10px' }}>
-          Tahun Kendaraan tidak tersedia untuk jenis kendaraan dan area yang anda pilih
-        </div>
+        {dataYears.length === 0 && (
+          <div className="col-12 pt-2 text-danger" style={{ fontSize: '10px' }}>
+            Tahun Kendaraan tidak tersedia untuk jenis kendaraan dan area yang anda pilih
+          </div>
+        )}
         {show === 'mobil' && (
           <div className="col-12 col-md-6">
             <label htmlFor="tenor">Jenis Asuransi</label>
@@ -134,9 +155,9 @@ export default function Index(props) {
               <option disabled="" value="">
                 Jenis Asuransi...
               </option>
-              {dataInsuranseType?.map((area, index) => (
-                <option key={index} value={area?.id}>
-                  {area?.name}
+              {dataInsuranseType?.map((insuranse, index) => (
+                <option key={index} value={insuranse?.id}>
+                  {insuranse?.name}
                 </option>
               ))}
             </select>
