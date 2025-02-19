@@ -13,21 +13,14 @@ export default function Index(props) {
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
 
   const getDataArea = async () => {
-    const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
     axios
-      .get(domainApi + '/api/getAreas')
-      // .get('/api/hello')
+      .get('/api/getAreas')
       .then((response) => {
-        console.log('Data area:', response);
+        setDataArea(response?.data)
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
-
-    // Menambahkan header CORS agar bisa diakses dari mana saja
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   };
 
   const getDataInsuranseType = async () => {
