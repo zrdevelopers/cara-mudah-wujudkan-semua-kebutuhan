@@ -3,7 +3,7 @@
 import { Fragment } from 'react';
 
 export default function Index(props) {
-  const { onClick }= props;
+  const { onClick } = props;
   return (
     <Fragment>
       <div className="mt-5" style={{ background: '#f2f2f2', padding: '20px' }}>

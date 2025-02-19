@@ -15,23 +15,23 @@ const Index = (props) => {
 
   return (
     <Fragment>
-    <div className={'modal fade show'} id={'myModal'} tabIndex="-1" role="dialog" >
-      <div className="modal-dialog" role="document">
-        <div className="modal-content mt13">
-          <div className="modal-header center">
-            <h5 class="modal-title">Form Pengajuan SolusiDana</h5>
-            <button onClick={onClose} className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+      <div className={'modal fade show'} id={'myModal'} tabIndex="-1" role="dialog">
+        <div className="modal-dialog" role="document">
+          <div className="modal-content mt13">
+            <div className="modal-header center">
+              <h5 class="modal-title">Form Pengajuan SolusiDana</h5>
+              <button onClick={onClose} className="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">{modalBody}</div>
+            <center>
+              <div className="modal-footer center">{modalFooter}</div>
+            </center>
           </div>
-          <div className="modal-body">{modalBody}</div>
-          <center>
-            <div className="modal-footer center">{modalFooter}</div>
-          </center>
         </div>
       </div>
-    </div>
-    <div class="modal-backdrop fade show"></div>
+      <div class="modal-backdrop fade show"></div>
     </Fragment>
   );
 };

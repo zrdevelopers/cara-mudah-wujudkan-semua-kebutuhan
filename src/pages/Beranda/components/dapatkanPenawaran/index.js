@@ -9,11 +9,12 @@ export default function Index(props) {
           <div className="row justify-content-md-center ">
             <div className="col-md-6 center pt-4 pb-5">
               <h5>
-                Butuh SolusiDana? <br/>
+                Butuh SolusiDana? <br />
                 Ajukan sekarang dan dapatkan solusi terbaik!
               </h5>
               <br />
-              <a onClick={onClick}
+              <a
+                onClick={onClick}
                 className="btn-hitung-simulasi align-self-center align-self-md-start"
                 style={{
                   background: '#000',
