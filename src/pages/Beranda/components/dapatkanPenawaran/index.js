@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
-export default function Index() {
+export default function Index(props) {
+  const { onClick } = props;
   return (
     <Fragment>
       <section className="yellow-bg">
@@ -8,11 +9,11 @@ export default function Index() {
           <div className="row justify-content-md-center ">
             <div className="col-md-6 center pt-4 pb-5">
               <h5>
-                Dapatkan informasi terbaru tentang Adira Finance <br />
-                Subscribe Sekarang
+                Butuh SolusiDana? <br/>
+                Ajukan sekarang dan dapatkan solusi terbaik!
               </h5>
               <br />
-              <a
+              <a onClick={onClick}
                 className="btn-hitung-simulasi align-self-center align-self-md-start"
                 style={{
                   background: '#000',

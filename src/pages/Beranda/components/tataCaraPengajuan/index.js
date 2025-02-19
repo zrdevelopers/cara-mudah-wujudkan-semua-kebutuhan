@@ -2,7 +2,8 @@
 
 import { Fragment } from 'react';
 
-export default function Index() {
+export default function Index(props) {
+  const { onClick }= props;
   return (
     <Fragment>
       <div className="mt-5" style={{ background: '#f2f2f2', padding: '20px' }}>
@@ -86,7 +87,7 @@ export default function Index() {
           className="d-block w-100"
           alt="center-banner-desktop"
         />
-        <a className="overlay-center-v2" href="#">
+        <a className="overlay-center-v2 pointer" onClick={onClick}>
           Ajukan Sekarang
         </a>
       </div>

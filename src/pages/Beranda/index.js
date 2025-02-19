@@ -28,12 +28,12 @@ export default function Index() {
       <Header onClick={() => handleAjukanSekarang()} />
       <SolusiDana />
       <Info />
-      <TataCaraPengajuan />
+      <TataCaraPengajuan onClick={() => handleAjukanSekarang()} />
       <Produk />
       <div className="break-line my-5"></div>
       <Skema />
-      <DapatkanPenawaran />
-
+      <DapatkanPenawaran onClick={() => handleAjukanSekarang()} />
+      {/* Modals */}
       <AjukanSekarangModal show={showAjukanSekarang} onClose={handleCloseModal} />
     </Fragment>
   );
