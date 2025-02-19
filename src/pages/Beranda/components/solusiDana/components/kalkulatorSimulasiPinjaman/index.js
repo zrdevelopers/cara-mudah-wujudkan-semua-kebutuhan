@@ -114,6 +114,7 @@ export default function Index() {
             dataArea={dataArea}
             dataInsuranseType={dataInsuranseType}
             selectedTab={selectedTab}
+            setFormKendaraan={setFormKendaraan}
           />
         )}
         {selectedTab === 'mobil' && (
@@ -123,6 +124,7 @@ export default function Index() {
             dataArea={dataArea}
             dataInsuranseType={dataInsuranseType}
             selectedTab={selectedTab}
+            setFormKendaraan={setFormKendaraan}
           />
         )}
         <div className="mt-4 d-block d-lg-none">

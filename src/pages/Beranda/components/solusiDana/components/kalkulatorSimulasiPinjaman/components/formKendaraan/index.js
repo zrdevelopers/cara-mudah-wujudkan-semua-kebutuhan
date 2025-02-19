@@ -27,7 +27,6 @@ export default function Index(props) {
         };
         getDataBrands(postData);
       }
-      
     } else if (select === 'brands') {
     }
     onChange(e);
