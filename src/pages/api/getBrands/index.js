@@ -4,7 +4,7 @@ export default async function handler(req, res) {
       const { group_object, vehicle_type } = req.body;
 
       const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
-      const response = await fetch(domainApi + '/api//getBrands', {
+      const response = await fetch(domainApi + '/api/getBrands', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

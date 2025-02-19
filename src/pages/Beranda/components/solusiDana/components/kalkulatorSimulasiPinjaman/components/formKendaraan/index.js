@@ -138,7 +138,7 @@ export default function Index(props) {
             ))}
           </select>
         </div>
-        {dataYears.length === 0 && (
+        {formKendaraan?.type && dataYears.length === 0 && (
           <div className="col-12 pt-2 text-danger" style={{ fontSize: '10px' }}>
             Tahun Kendaraan tidak tersedia untuk jenis kendaraan dan area yang anda pilih
           </div>

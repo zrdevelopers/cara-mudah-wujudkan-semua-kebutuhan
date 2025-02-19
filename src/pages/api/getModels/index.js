@@ -1,15 +1,15 @@
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
-      const { group_object, vehicle_type } = req.body;
+      const { brand, vehicle_type } = req.body;
 
       const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
-      const response = await fetch(domainApi + '/api//getBrands', {
+      const response = await fetch(domainApi + '/api/getModels', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ group_object, vehicle_type })
+        body: JSON.stringify({ brand, vehicle_type })
       });
 
       if (!response.ok) {
