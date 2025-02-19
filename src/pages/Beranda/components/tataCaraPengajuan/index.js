@@ -76,7 +76,7 @@ export default function Index(props) {
         </div>
       </div>
 
-      {/* Banner */}
+      {/* Banner Desktop */}
       <div
         className="bannerresDesk mt-3 mb-5"
         style={{ position: 'relative', margin: '15px', padding: '0px' }}
@@ -90,6 +90,10 @@ export default function Index(props) {
         <a className="overlay-center-v2 pointer" onClick={onClick}>
           Ajukan Sekarang
         </a>
+      </div>
+      <div className="bannerresMob" style={{position: 'relative', margin: '15px',padding: '0px'}}>
+        <img style={{borderRadius: '10px'}} src="https://www.adira.co.id/assets/mpl/img/center-banner-mobile-v2.jpg" className="d-block w-100" alt="banner-multiguna-mobile" />
+        <a onClick={onClick}><img className="overlay-center" src="https://www.adira.co.id/assets/mpl/img/button-ajukan-header-mobile.png" alt="" /></a>
       </div>
     </Fragment>
   );
