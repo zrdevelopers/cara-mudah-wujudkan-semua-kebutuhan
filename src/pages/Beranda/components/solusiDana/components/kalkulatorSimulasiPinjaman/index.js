@@ -33,8 +33,8 @@ export default function Index() {
         </div>
 
         {/* Content Berdasarkan Tab */}
-        {/* {selectedTab === 'motor' && <KendaraanMotor />}
-        {selectedTab === 'mobil' && <KendaraanMobil />} */}
+        {selectedTab === 'motor' && <KendaraanMotor />}
+        {selectedTab === 'mobil' && <KendaraanMobil />}
         <div className="mt-4 d-block d-lg-none">
           <button className="hitung-cicilan" disabled="">
             <span>Hitung</span>

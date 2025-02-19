@@ -1,59 +1,91 @@
 'use client';
 
-import { Fragment } from 'react';
+import { Fragment, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function Index(props) {
   const { show } = props;
+
+  const [formKendaraan, setFormKendaraan] = useState({})
+  const [error, setError]= useState({})
+
+  const [dataArea, setDataArea] = useState([]);
+  const [dataInsuranseType, setDataInsuranseType] = useState([]);
+
+  const getDataArea = async() => {
+    const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
+    try {
+      const response = await axios.get(domainApi + '/Api/getAreas');
+      console.log('a', response )
+      // setDataArea(response.data); // Pastikan API mengembalikan array
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  const getDataInsuranseType = async() => {
+    const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
+    try {
+      const response = await axios.get(domainApi + '/Api/getInsuranseType');
+      console.log('a', response )
+      // setDataArea(response.data); // Pastikan API mengembalikan array
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  useEffect(() => {
+    getDataArea();
+    getDataInsuranseType();
+  },[])
+
   return (
     <Fragment>
-      <div class="row mb-3" style="row-gap: 15px;">
-        <div class="col-6 col-md-3">
-          <label for="area">Area Tempat Tinggal</label>
-          <select class="custom-select" name="area" style="font-style: italic;">
+      <div className="row mb-3" style={{rowGap: '15px'}}>
+        <div className="col-6 col-md-3">
+          <label htmlFor="area">Area Tempat Tinggal</label>
+          <select className="custom-select font-italic" name="area" >
             <option disabled="" value="">
               Area Tempat Tinggal...
             </option>
-            <option value="[object Object]">Aceh, Sumut, Riau, Kep. Riau</option>
-            <option value="[object Object]">Bali &amp; Nusa Tenggara</option>
-            <option value="[object Object]">Jawa Barat</option>
-            <option value="[object Object]">Jabodetabek</option>
-            <option value="[object Object]">Jawa Tengah</option>
-            <option value="[object Object]">Jawa Timur</option>
-            <option value="[object Object]">Kalimantan</option>
-            <option value="[object Object]">Sulawesi, Maluku, Papua</option>
-            <option value="[object Object]">Sumbar, Sumsel, Babel, Jambi, Lampung, Bengkulu</option>
+            {dataArea.map((area, index) => (
+              <option key={index} value={area.id}>
+                {area.name}
+              </option>
+            ))}
           </select>
         </div>
-        <div class="col-6 col-md-3">
-          <label for="merk">Merk Kendaraan</label>
-          <select class="custom-select" name="merk" style="font-style: italic;">
+        <div className="col-6 col-md-3">
+          <label htmlFor="merk">Merk Kendaraan</label>
+          <select className="custom-select font-italic" name="merk" >
             <option disabled="" value="">
               Merk...
             </option>
           </select>
         </div>
-        <div class="col-6 col-md-3">
-          <label for="type">Tipe Kendaraan</label>
-          <select class="custom-select" name="type" style="font-style: italic;">
+        <div className="col-6 col-md-3">
+          <label htmlFor="type">Tipe Kendaraan</label>
+          <select className="custom-select font-italic" name="type" >
             <option disabled="" value="">
               Tipe...
             </option>
           </select>
         </div>
-        <div class="col-6 col-md-3">
-          <label for="tahun">Tahun Kendaraan</label>
-          <select class="custom-select" name="tahun" style="font-style: italic;">
+        <div className="col-6 col-md-3">
+          <label htmlFor="tahun">Tahun Kendaraan</label>
+          <select className="custom-select font-italic" name="tahun" >
             <option disabled="" value="">
               Tahun...
             </option>
           </select>
         </div>
-        <div class="col-6 pt-2" style="font-size: 10px;color: red;/* display: none; */">
+        <div className="col-12 pt-2 text-danger" style={{fontSize: '10px'}}>
           Tahun Kendaraan tidak tersedia untuk jenis kendaraan dan area yang anda pilih
         </div>
-        <div class="col-12 col-md-6">
-          <label for="tenor">Jenis Asuransi</label>
-          <select class="custom-select" name="jenis-asuransi" style="font-style: italic;">
+        {show === 'mobil' && (
+        <div className="col-12 col-md-6">
+          <label htmlFor="tenor">Jenis Asuransi</label>
+          <select className="custom-select font-italic" name="jenis-asuransi" >
             <option disabled="" value="">
               Jenis Asuransi...
             </option>
@@ -61,19 +93,20 @@ export default function Index(props) {
             <option value="[object Object]">Total Lost Only</option>
           </select>
         </div>
+        )}
       </div>
-      <div class="row mb-3" style="row-gap: 15px;">
-        <div class="col-6 col-md-3">
-          <label for="min_pengajuan">Minimum pembiayaan</label>
-          <input name="min_pengajuan" type="text" class="form-control" readonly="" />
+      <div className="row mb-3" style={{rowGap: '15px'}}>
+        <div className="col-6 col-md-3">
+          <label htmlFor="min_pengajuan">Minimum pembiayaan</label>
+          <input name="min_pengajuan" type="text" className="form-control" readOnly="" />
         </div>
-        <div class="col-6 col-md-3">
-          <label for="max_pengajuan">Maksimum pembiayaan</label>
-          <input name="max_pengajuan" type="text" class="form-control" readonly="" />
+        <div className="col-6 col-md-3">
+          <label htmlFor="max_pengajuan">Maksimum pembiayaan</label>
+          <input name="max_pengajuan" type="text" className="form-control" readOnly="" />
         </div>
-        <div class="col-6 col-md-3">
-          <label for="tenor">Tenor</label>
-          <select class="custom-select" name="tenor" style="font-style: italic;">
+        <div className="col-6 col-md-3">
+          <label htmlFor="tenor">Tenor</label>
+          <select className="custom-select font-italic" name="tenor" >
             <option disabled="" value="">
               Tenor...
             </option>
@@ -83,12 +116,12 @@ export default function Index(props) {
             <option value="48">48 Bulan</option>
           </select>
         </div>
-        <div class="col-6 col-md-3">
-          <label for="total_pengajuan">Pembiayaan yang diinginkan</label>
+        <div className="col-6 col-md-3">
+          <label htmlFor="total_pengajuan">Pembiayaan yang diinginkan</label>
           <input
             name="total_pengajuan"
             type="number"
-            class="form-control"
+            className="form-control"
             min="30000000"
             max="100000000"
             step="1000000"
