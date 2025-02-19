@@ -1,5 +1,5 @@
 'use client';
-import { Fragment, useState } from 'react';
+import { Fragment, useState, useEffect } from 'react';
 import KendaraanMotor from './components/kendaraanMotor';
 import KendaraanMobil from './components/kendaraanMobil';
 import axios from 'axios';
@@ -25,7 +25,7 @@ export default function Index() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setDataForm((prev) => ({
+    setFormKendaraan((prev) => ({
       ...prev,
       [name]: value
     }));
@@ -113,6 +113,7 @@ export default function Index() {
             onChange={handleChange}
             dataArea={dataArea}
             dataInsuranseType={dataInsuranseType}
+            selectedTab={selectedTab}
           />
         )}
         {selectedTab === 'mobil' && (
@@ -121,6 +122,7 @@ export default function Index() {
             onChange={handleChange}
             dataArea={dataArea}
             dataInsuranseType={dataInsuranseType}
+            selectedTab={selectedTab}
           />
         )}
         <div className="mt-4 d-block d-lg-none">
