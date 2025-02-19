@@ -24,19 +24,19 @@ export default function Index(props) {
   };
 
   const getDataInsuranseType = async () => {
-    const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
-    try {
-      const response = await axios.get(domainApi + '/Api/getInsuranseType');
-      console.log('a', response);
-      // setDataArea(response.data); // Pastikan API mengembalikan array
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
+    axios
+      .get('/api/getInsuranseType')
+      .then((response) => {
+        setDataInsuranseType(response?.data)
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
   };
 
   useEffect(() => {
     getDataArea();
-    // getDataInsuranseType();
+    getDataInsuranseType();
   }, []);
 
   return (
@@ -49,8 +49,8 @@ export default function Index(props) {
               Area Tempat Tinggal...
             </option>
             {dataArea.map((area, index) => (
-              <option key={index} value={area.id}>
-                {area.name}
+              <option key={index} value={area?.id}>
+                {area?.name}
               </option>
             ))}
           </select>
@@ -89,8 +89,11 @@ export default function Index(props) {
               <option disabled="" value="">
                 Jenis Asuransi...
               </option>
-              <option value="[object Object]">All Risk</option>
-              <option value="[object Object]">Total Lost Only</option>
+              {dataInsuranseType?.map((area, index) => (
+                <option key={index} value={area?.id}>
+                  {area?.name}
+                </option>
+              ))}
             </select>
           </div>
         )}
