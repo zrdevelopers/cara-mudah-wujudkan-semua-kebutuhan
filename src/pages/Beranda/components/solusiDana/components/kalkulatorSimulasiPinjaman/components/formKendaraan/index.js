@@ -11,6 +11,10 @@ export default function Index(props) {
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
   const [dataBrands, setDataBrands] = useState([]);
 
+  const handleChange = async() => {
+    onChange();
+  }
+
   const getDataArea = async () => {
     axios
       .get(domain + '/api/getAreas')
@@ -64,7 +68,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="area"
             value={formKendaraan.area}
-            onChange={onChange}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Area Tempat Tinggal...
@@ -82,7 +86,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="merk"
             value={formKendaraan.merk}
-            onChange={onChange}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Merk...
@@ -95,7 +99,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="type"
             value={formKendaraan.type}
-            onChange={onChange}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Tipe...
@@ -108,7 +112,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="tahun"
             value={formKendaraan.tahun}
-            onChange={onChange}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Tahun...
@@ -125,7 +129,7 @@ export default function Index(props) {
               className="custom-select font-italic"
               name="jenis_asuransi"
               value={formKendaraan.jenis_asuransi}
-              onChange={onChange}
+              onChange={handleChange}
             >
               <option disabled="" value="">
                 Jenis Asuransi...
@@ -158,7 +162,7 @@ export default function Index(props) {
             className="form-control"
             readOnly
             value={formKendaraan.max_pengajuan}
-            onChange={onChange}
+            onChange={handleChange}
           />
         </div>
         <div className="col-6 col-md-3">
@@ -167,7 +171,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="tenor"
             value={formKendaraan.tenor}
-            onChange={onChange}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Tenor...
@@ -188,7 +192,7 @@ export default function Index(props) {
             max="100000000"
             step="1000000"
             value={formKendaraan.total_pengajuan}
-            onChange={onChange}
+            onChange={handleChange}
           />
         </div>
       </div>

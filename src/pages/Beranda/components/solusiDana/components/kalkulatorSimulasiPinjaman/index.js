@@ -16,7 +16,6 @@ export default function Index() {
     tenor: '',
     total_pengajuan: ''
   });
-  const [error, setError] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,12 +23,6 @@ export default function Index() {
     setDataForm((prev) => ({
       ...prev,
       [name]: value
-    }));
-
-    // Hapus error ketika input diisi
-    setError((prev) => ({
-      ...prev,
-      [name]: ''
     }));
   };
 
