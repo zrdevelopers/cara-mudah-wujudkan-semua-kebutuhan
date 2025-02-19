@@ -6,7 +6,9 @@ import axios from 'axios';
 export default function Index(props) {
   const { show } = props;
 
-  const [formKendaraan, setFormKendaraan] = useState({});
+  const [formKendaraan, setFormKendaraan] = useState({
+    nama: '',
+  });
   const [error, setError] = useState({});
 
   const [dataArea, setDataArea] = useState([]);
@@ -35,6 +37,7 @@ export default function Index(props) {
       });
   };
 
+  // Jika select area
   const getDataBrands = async () => {
     const postData = {
       group_object: "001",
