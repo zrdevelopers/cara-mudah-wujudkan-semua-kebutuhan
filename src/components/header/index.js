@@ -28,8 +28,8 @@ const Index = (props) => {
               />
             </Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent"></div>
-            <div
-              className="navbar-brand mpl-ajukan-sekarang"
+            <a
+              className="navbar-brand mpl-ajukan-sekarang pointer"
               onClick={onClick}
               style={{
                 border: 'solid #333',
@@ -43,7 +43,7 @@ const Index = (props) => {
                 height={32} // Adjust height as needed
                 className="d-inline-block align-top"
               />
-            </div>
+            </a>
           </nav>
         </div>
         <div
@@ -76,7 +76,7 @@ const Index = (props) => {
           priority
           style={{ width: '100%', height: 'auto' }} // Ensure it scales responsively
         />
-        <a className="overlay-v2 font-weight-bolder" href="#">
+        <a className="overlay-v2 font-weight-bolder pointer" onClick={onClick}>
           Ajukan Sekarang
         </a>
       </div>
@@ -91,7 +91,7 @@ const Index = (props) => {
           priority
           style={{ width: '100%' }} // Ensure it scales responsively
         />
-        <a href="#">
+        <a className="pointer" onClick={onClick}>
           <Image
             className="overlay"
             src="./assets/images/button-ajukan-header-mobile.png"
