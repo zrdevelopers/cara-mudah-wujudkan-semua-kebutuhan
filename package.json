@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.2.6",
     "aos": "^2.3.4",
     "axios": "^1.7.9",
+    "http-proxy": "^1.18.1",
     "next": "15.1.7",
     "next-sitemap": "^4.2.3",
     "react": "^19.0.0",

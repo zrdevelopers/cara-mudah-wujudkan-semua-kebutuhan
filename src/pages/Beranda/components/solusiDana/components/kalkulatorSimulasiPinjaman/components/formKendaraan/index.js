@@ -6,45 +6,52 @@ import axios from 'axios';
 export default function Index(props) {
   const { show } = props;
 
-  const [formKendaraan, setFormKendaraan] = useState({})
-  const [error, setError]= useState({})
+  const [formKendaraan, setFormKendaraan] = useState({});
+  const [error, setError] = useState({});
 
   const [dataArea, setDataArea] = useState([]);
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
 
-  const getDataArea = async() => {
+  const getDataArea = async () => {
     const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
-    try {
-      const response = await axios.get(domainApi + '/Api/getAreas');
-      console.log('a', response )
-      // setDataArea(response.data); // Pastikan API mengembalikan array
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  }
+    axios
+      .get(domainApi + '/api/getAreas')
+      // .get('/api/hello')
+      .then((response) => {
+        console.log('Data area:', response);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
 
-  const getDataInsuranseType = async() => {
+    // Menambahkan header CORS agar bisa diakses dari mana saja
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  };
+
+  const getDataInsuranseType = async () => {
     const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
     try {
       const response = await axios.get(domainApi + '/Api/getInsuranseType');
-      console.log('a', response )
+      console.log('a', response);
       // setDataArea(response.data); // Pastikan API mengembalikan array
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  }
+  };
 
   useEffect(() => {
     getDataArea();
-    getDataInsuranseType();
-  },[])
+    // getDataInsuranseType();
+  }, []);
 
   return (
     <Fragment>
-      <div className="row mb-3" style={{rowGap: '15px'}}>
+      <div className="row mb-3" style={{ rowGap: '15px' }}>
         <div className="col-6 col-md-3">
           <label htmlFor="area">Area Tempat Tinggal</label>
-          <select className="custom-select font-italic" name="area" >
+          <select className="custom-select font-italic" name="area">
             <option disabled="" value="">
               Area Tempat Tinggal...
             </option>
@@ -57,7 +64,7 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="merk">Merk Kendaraan</label>
-          <select className="custom-select font-italic" name="merk" >
+          <select className="custom-select font-italic" name="merk">
             <option disabled="" value="">
               Merk...
             </option>
@@ -65,7 +72,7 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="type">Tipe Kendaraan</label>
-          <select className="custom-select font-italic" name="type" >
+          <select className="custom-select font-italic" name="type">
             <option disabled="" value="">
               Tipe...
             </option>
@@ -73,29 +80,29 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="tahun">Tahun Kendaraan</label>
-          <select className="custom-select font-italic" name="tahun" >
+          <select className="custom-select font-italic" name="tahun">
             <option disabled="" value="">
               Tahun...
             </option>
           </select>
         </div>
-        <div className="col-12 pt-2 text-danger" style={{fontSize: '10px'}}>
+        <div className="col-12 pt-2 text-danger" style={{ fontSize: '10px' }}>
           Tahun Kendaraan tidak tersedia untuk jenis kendaraan dan area yang anda pilih
         </div>
         {show === 'mobil' && (
-        <div className="col-12 col-md-6">
-          <label htmlFor="tenor">Jenis Asuransi</label>
-          <select className="custom-select font-italic" name="jenis-asuransi" >
-            <option disabled="" value="">
-              Jenis Asuransi...
-            </option>
-            <option value="[object Object]">All Risk</option>
-            <option value="[object Object]">Total Lost Only</option>
-          </select>
-        </div>
+          <div className="col-12 col-md-6">
+            <label htmlFor="tenor">Jenis Asuransi</label>
+            <select className="custom-select font-italic" name="jenis-asuransi">
+              <option disabled="" value="">
+                Jenis Asuransi...
+              </option>
+              <option value="[object Object]">All Risk</option>
+              <option value="[object Object]">Total Lost Only</option>
+            </select>
+          </div>
         )}
       </div>
-      <div className="row mb-3" style={{rowGap: '15px'}}>
+      <div className="row mb-3" style={{ rowGap: '15px' }}>
         <div className="col-6 col-md-3">
           <label htmlFor="min_pengajuan">Minimum pembiayaan</label>
           <input name="min_pengajuan" type="text" className="form-control" readOnly="" />
@@ -106,7 +113,7 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="tenor">Tenor</label>
-          <select className="custom-select font-italic" name="tenor" >
+          <select className="custom-select font-italic" name="tenor">
             <option disabled="" value="">
               Tenor...
             </option>
