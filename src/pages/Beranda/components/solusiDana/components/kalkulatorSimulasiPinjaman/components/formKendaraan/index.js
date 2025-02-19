@@ -36,8 +36,8 @@ export default function Index(props) {
   // Jika select area
   const getDataBrands = async () => {
     const postData = {
-      group_object: "001",
-      vehicle_type: "3",
+      group_object: '001',
+      vehicle_type: '3'
     };
 
     axios
@@ -60,9 +60,12 @@ export default function Index(props) {
       <div className="row mb-3" style={{ rowGap: '15px' }}>
         <div className="col-6 col-md-3">
           <label htmlFor="area">Area Tempat Tinggal</label>
-          <select className="custom-select font-italic" name="area"
-          value={formKendaraan.area}
-          onChange={onChange}>
+          <select
+            className="custom-select font-italic"
+            name="area"
+            value={formKendaraan.area}
+            onChange={onChange}
+          >
             <option disabled="" value="">
               Area Tempat Tinggal...
             </option>
@@ -75,9 +78,12 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="merk">Merk Kendaraan</label>
-          <select className="custom-select font-italic" name="merk"
-          value={formKendaraan.merk}
-          onChange={onChange}>
+          <select
+            className="custom-select font-italic"
+            name="merk"
+            value={formKendaraan.merk}
+            onChange={onChange}
+          >
             <option disabled="" value="">
               Merk...
             </option>
@@ -85,9 +91,12 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="type">Tipe Kendaraan</label>
-          <select className="custom-select font-italic" name="type"
-          value={formKendaraan.type}
-          onChange={onChange}>
+          <select
+            className="custom-select font-italic"
+            name="type"
+            value={formKendaraan.type}
+            onChange={onChange}
+          >
             <option disabled="" value="">
               Tipe...
             </option>
@@ -95,9 +104,12 @@ export default function Index(props) {
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="tahun">Tahun Kendaraan</label>
-          <select className="custom-select font-italic" name="tahun"
-          value={formKendaraan.tahun}
-          onChange={onChange}>
+          <select
+            className="custom-select font-italic"
+            name="tahun"
+            value={formKendaraan.tahun}
+            onChange={onChange}
+          >
             <option disabled="" value="">
               Tahun...
             </option>
@@ -109,9 +121,12 @@ export default function Index(props) {
         {show === 'mobil' && (
           <div className="col-12 col-md-6">
             <label htmlFor="tenor">Jenis Asuransi</label>
-            <select className="custom-select font-italic" name="jenis_asuransi"
-            value={formKendaraan.jenis_asuransi}
-            onChange={onChange}>
+            <select
+              className="custom-select font-italic"
+              name="jenis_asuransi"
+              value={formKendaraan.jenis_asuransi}
+              onChange={onChange}
+            >
               <option disabled="" value="">
                 Jenis Asuransi...
               </option>
@@ -127,20 +142,33 @@ export default function Index(props) {
       <div className="row mb-3" style={{ rowGap: '15px' }}>
         <div className="col-6 col-md-3">
           <label htmlFor="min_pengajuan">Minimum pembiayaan</label>
-          <input name="min_pengajuan" type="text" className="form-control" readOnly
-          value={formKendaraan.min_pengajuan} />
+          <input
+            name="min_pengajuan"
+            type="text"
+            className="form-control"
+            readOnly
+            value={formKendaraan.min_pengajuan}
+          />
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="max_pengajuan">Maksimum pembiayaan</label>
-          <input name="max_pengajuan" type="text" className="form-control" readOnly
-          value={formKendaraan.max_pengajuan}
-          onChange={onChange} />
+          <input
+            name="max_pengajuan"
+            type="text"
+            className="form-control"
+            readOnly
+            value={formKendaraan.max_pengajuan}
+            onChange={onChange}
+          />
         </div>
         <div className="col-6 col-md-3">
           <label htmlFor="tenor">Tenor</label>
-          <select className="custom-select font-italic" name="tenor"
-          value={formKendaraan.tenor}
-          onChange={onChange}>
+          <select
+            className="custom-select font-italic"
+            name="tenor"
+            value={formKendaraan.tenor}
+            onChange={onChange}
+          >
             <option disabled="" value="">
               Tenor...
             </option>

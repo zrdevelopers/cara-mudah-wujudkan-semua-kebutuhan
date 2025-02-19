@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ group_object, vehicle_type }),
+        body: JSON.stringify({ group_object, vehicle_type })
       });
 
       if (!response.ok) {

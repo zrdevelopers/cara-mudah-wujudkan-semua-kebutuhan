@@ -14,7 +14,7 @@ export default function Index() {
     min_pengajuan: '',
     max_pengajuan: '',
     tenor: '',
-    total_pengajuan: '',
+    total_pengajuan: ''
   });
   const [error, setError] = useState({});
 
@@ -34,10 +34,10 @@ export default function Index() {
   };
 
   const handleHitung = () => {
-    alert('handle')
-  }
+    alert('handle');
+  };
 
-  const clearForm = async() => {
+  const clearForm = async () => {
     setFormKendaraan({
       area: '',
       merk: '',
@@ -47,9 +47,9 @@ export default function Index() {
       min_pengajuan: '',
       max_pengajuan: '',
       tenor: '',
-      total_pengajuan: '',
+      total_pengajuan: ''
     });
-  }
+  };
 
   return (
     <Fragment>
@@ -65,21 +65,29 @@ export default function Index() {
           </div>
           <div
             className={`pilih-bpkb ${selectedTab === 'motor' ? 'pilih_bpkb_active' : ''}`}
-            onClick={() => {setSelectedTab('motor'), clearForm()}}
+            onClick={() => {
+              setSelectedTab('motor'), clearForm();
+            }}
           >
             Motor
           </div>
           <div
             className={`pilih-bpkb ${selectedTab === 'mobil' ? 'pilih_bpkb_active' : ''}`}
-            onClick={() => {setSelectedTab('mobil'), clearForm()}}
+            onClick={() => {
+              setSelectedTab('mobil'), clearForm();
+            }}
           >
             Mobil
           </div>
         </div>
 
         {/* Content Berdasarkan Tab */}
-        {selectedTab === 'motor' && <KendaraanMotor formKendaraan={formKendaraan} onChange={handleChange} />}
-        {selectedTab === 'mobil' && <KendaraanMobil formKendaraan={formKendaraan} onChange={handleChange} />}
+        {selectedTab === 'motor' && (
+          <KendaraanMotor formKendaraan={formKendaraan} onChange={handleChange} />
+        )}
+        {selectedTab === 'mobil' && (
+          <KendaraanMobil formKendaraan={formKendaraan} onChange={handleChange} />
+        )}
         <div className="mt-4 d-block d-lg-none">
           <button className="hitung-cicilan" disabled="">
             <span>Hitung</span>
