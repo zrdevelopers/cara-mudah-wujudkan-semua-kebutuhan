@@ -16,7 +16,7 @@ export default function Index(props) {
     axios
       .get('/api/getAreas')
       .then((response) => {
-        setDataArea(response?.data)
+        setDataArea(response?.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -27,7 +27,7 @@ export default function Index(props) {
     axios
       .get('/api/getInsuranseType')
       .then((response) => {
-        setDataInsuranseType(response?.data)
+        setDataInsuranseType(response?.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);

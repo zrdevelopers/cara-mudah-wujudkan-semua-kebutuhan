@@ -4,8 +4,8 @@ export default async function handler(req, res) {
       const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
       const response = await fetch(domainApi + '/api/getAreas', {
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       });
 
       if (!response.ok) {
