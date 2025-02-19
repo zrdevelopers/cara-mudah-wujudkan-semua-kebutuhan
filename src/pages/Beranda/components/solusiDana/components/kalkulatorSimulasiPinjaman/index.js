@@ -2,9 +2,14 @@
 import { Fragment, useState } from 'react';
 import KendaraanMotor from './components/kendaraanMotor';
 import KendaraanMobil from './components/kendaraanMobil';
+import axios from 'axios';
 
 export default function Index() {
+  const domain = process.env.NEXT_PUBLIC_DOMAIN;
   const [selectedTab, setSelectedTab] = useState('motor'); // State untuk tab aktif
+  const [dataArea, setDataArea] = useState([]);
+  const [dataInsuranseType, setDataInsuranseType] = useState([]);
+
   const [formKendaraan, setFormKendaraan] = useState({
     area: '',
     merk: '',
@@ -44,6 +49,33 @@ export default function Index() {
     });
   };
 
+  const getDataArea = async () => {
+    axios
+      .get(domain + '/api/getAreas')
+      .then((response) => {
+        setDataArea(response?.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  const getDataInsuranseType = async () => {
+    axios
+      .get(domain + '/api/getInsuranseType')
+      .then((response) => {
+        setDataInsuranseType(response?.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  useEffect(() => {
+    getDataArea();
+    getDataInsuranseType();
+  }, []);
+
   return (
     <Fragment>
       <div className="cal-box" id="Appsmpl">
@@ -76,10 +108,20 @@ export default function Index() {
 
         {/* Content Berdasarkan Tab */}
         {selectedTab === 'motor' && (
-          <KendaraanMotor formKendaraan={formKendaraan} onChange={handleChange} />
+          <KendaraanMotor
+            formKendaraan={formKendaraan}
+            onChange={handleChange}
+            dataArea={dataArea}
+            dataInsuranseType={dataInsuranseType}
+          />
         )}
         {selectedTab === 'mobil' && (
-          <KendaraanMobil formKendaraan={formKendaraan} onChange={handleChange} />
+          <KendaraanMobil
+            formKendaraan={formKendaraan}
+            onChange={handleChange}
+            dataArea={dataArea}
+            dataInsuranseType={dataInsuranseType}
+          />
         )}
         <div className="mt-4 d-block d-lg-none">
           <button className="hitung-cicilan" disabled="">

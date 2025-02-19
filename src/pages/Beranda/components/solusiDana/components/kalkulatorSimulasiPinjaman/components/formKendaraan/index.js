@@ -4,11 +4,8 @@ import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function Index(props) {
-  const { show, formKendaraan, onChange } = props;
-  const domain = process.env.NEXT_PUBLIC_DOMAIN;
+  const { show, formKendaraan, onChange, dataArea, dataInsuranseType } = props;
 
-  const [dataArea, setDataArea] = useState([]);
-  const [dataInsuranseType, setDataInsuranseType] = useState([]);
   const [dataBrands, setDataBrands] = useState([]);
   const [dataModels, setDataModels] = useState([]);
   const [dataYears, setDataYears] = useState([]);
@@ -17,28 +14,6 @@ export default function Index(props) {
 
   const handleChange = async () => {
     onChange();
-  };
-
-  const getDataArea = async () => {
-    axios
-      .get(domain + '/api/getAreas')
-      .then((response) => {
-        setDataArea(response?.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  };
-
-  const getDataInsuranseType = async () => {
-    axios
-      .get(domain + '/api/getInsuranseType')
-      .then((response) => {
-        setDataInsuranseType(response?.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
   };
 
   // Jika select area
@@ -51,17 +26,12 @@ export default function Index(props) {
     axios
       .post('/api/getBrands', postData)
       .then((response) => {
-        setDataInsuranseType(response?.data);
+        setDataBrands(response?.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
   };
-
-  useEffect(() => {
-    getDataArea();
-    getDataInsuranseType();
-  }, []);
 
   return (
     <Fragment>
