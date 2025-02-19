@@ -30,7 +30,14 @@ export default function Index(props) {
       getDataBrands(postData);
 
       setFormKendaraan({
-        ...formKendaraan
+        merk: '',
+        type: '',
+        tahun: '',
+        jenis_asuransi: '',
+        min_pengajuan: 3000000,
+        max_pengajuan: 30000000,
+        tenor: '',
+        total_pengajuan: 5000000
       });
     } else if (select === 'brands') {
     }
