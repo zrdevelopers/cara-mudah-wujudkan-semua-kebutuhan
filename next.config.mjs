@@ -24,15 +24,7 @@ const nextConfig = {
   },
   env: {
     NEXT_PUBLIC_DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/api/getAreas',
-        destination: 'https://www.adira.co.id/Api/getAreas',
-      },
-    ];
-  },
+  }
 };
 
 export default nextConfig;
