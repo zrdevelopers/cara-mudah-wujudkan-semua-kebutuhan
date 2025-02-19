@@ -11,6 +11,7 @@ export default function Index(props) {
 
   const [dataArea, setDataArea] = useState([]);
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
+  const [dataBrands, setDataBrands] = useState([]);
 
   const getDataArea = async () => {
     axios
@@ -33,6 +34,24 @@ export default function Index(props) {
         console.error('Error fetching data:', error);
       });
   };
+
+  const getDataBrands = async () => {
+    const postData = {
+      group_object: "001",
+      vehicle_type: "3",
+    };
+
+    axios
+      .post('/api/getBrands', postData)
+      .then((response) => {
+        setDataInsuranseType(response?.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+
 
   useEffect(() => {
     getDataArea();
