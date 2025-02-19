@@ -5,6 +5,51 @@ import KendaraanMobil from './components/kendaraanMobil';
 
 export default function Index() {
   const [selectedTab, setSelectedTab] = useState('motor'); // State untuk tab aktif
+  const [formKendaraan, setFormKendaraan] = useState({
+    area: '',
+    merk: '',
+    type: '',
+    tahun: '',
+    jenis_asuransi: '',
+    min_pengajuan: '',
+    max_pengajuan: '',
+    tenor: '',
+    total_pengajuan: '',
+  });
+  const [error, setError] = useState({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setDataForm((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Hapus error ketika input diisi
+    setError((prev) => ({
+      ...prev,
+      [name]: ''
+    }));
+  };
+
+  const handleHitung = () => {
+    alert('handle')
+  }
+
+  const clearForm = async() => {
+    setFormKendaraan({
+      area: '',
+      merk: '',
+      type: '',
+      tahun: '',
+      jenis_asuransi: '',
+      min_pengajuan: '',
+      max_pengajuan: '',
+      tenor: '',
+      total_pengajuan: '',
+    });
+  }
 
   return (
     <Fragment>
@@ -20,21 +65,21 @@ export default function Index() {
           </div>
           <div
             className={`pilih-bpkb ${selectedTab === 'motor' ? 'pilih_bpkb_active' : ''}`}
-            onClick={() => setSelectedTab('motor')}
+            onClick={() => {setSelectedTab('motor'), clearForm()}}
           >
             Motor
           </div>
           <div
             className={`pilih-bpkb ${selectedTab === 'mobil' ? 'pilih_bpkb_active' : ''}`}
-            onClick={() => setSelectedTab('mobil')}
+            onClick={() => {setSelectedTab('mobil'), clearForm()}}
           >
             Mobil
           </div>
         </div>
 
         {/* Content Berdasarkan Tab */}
-        {selectedTab === 'motor' && <KendaraanMotor />}
-        {selectedTab === 'mobil' && <KendaraanMobil />}
+        {selectedTab === 'motor' && <KendaraanMotor formKendaraan={formKendaraan} onChange={handleChange} />}
+        {selectedTab === 'mobil' && <KendaraanMobil formKendaraan={formKendaraan} onChange={handleChange} />}
         <div className="mt-4 d-block d-lg-none">
           <button className="hitung-cicilan" disabled="">
             <span>Hitung</span>
@@ -63,7 +108,7 @@ export default function Index() {
               </div>
             </div>
             <div className="col-4">
-              <button className="hitung-cicilan" disabled>
+              <button className="hitung-cicilan" onClick={handleHitung} disabled>
                 <span>
                   <b>Hitung</b>
                 </span>
