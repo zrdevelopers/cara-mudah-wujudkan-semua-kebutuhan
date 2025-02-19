@@ -16,10 +16,10 @@ export default function Index() {
     type: '',
     tahun: '',
     jenis_asuransi: '',
-    min_pengajuan: '',
-    max_pengajuan: '',
+    min_pengajuan: 3000000,
+    max_pengajuan: 30000000,
     tenor: '',
-    total_pengajuan: ''
+    total_pengajuan: 5000000
   });
 
   const handleChange = (e) => {
@@ -32,7 +32,7 @@ export default function Index() {
   };
 
   const handleHitung = () => {
-    alert('handle');
+    console.log('handleHitung', formKendaraan);
   };
 
   const clearForm = async () => {
@@ -42,10 +42,10 @@ export default function Index() {
       type: '',
       tahun: '',
       jenis_asuransi: '',
-      min_pengajuan: '',
-      max_pengajuan: '',
+      min_pengajuan: 3000000,
+      max_pengajuan: 30000000,
       tenor: '',
-      total_pengajuan: ''
+      total_pengajuan: 5000000
     });
   };
 
@@ -91,7 +91,13 @@ export default function Index() {
           <div
             className={`pilih-bpkb ${selectedTab === 'motor' ? 'pilih_bpkb_active' : ''}`}
             onClick={() => {
-              setSelectedTab('motor'), clearForm();
+              setSelectedTab('motor'),
+                setFormKendaraan({
+                  ...formKendaraan,
+                  min_pengajuan: 3000000,
+                  max_pengajuan: 30000000,
+                  total_pengajuan: 5000000
+                });
             }}
           >
             Motor
@@ -99,7 +105,13 @@ export default function Index() {
           <div
             className={`pilih-bpkb ${selectedTab === 'mobil' ? 'pilih_bpkb_active' : ''}`}
             onClick={() => {
-              setSelectedTab('mobil'), clearForm();
+              setSelectedTab('mobil'),
+                setFormKendaraan({
+                  ...formKendaraan,
+                  min_pengajuan: 30000000,
+                  max_pengajuan: 100000000,
+                  total_pengajuan: 50000000
+                });
             }}
           >
             Mobil
@@ -155,7 +167,7 @@ export default function Index() {
               </div>
             </div>
             <div className="col-4">
-              <button className="hitung-cicilan" onClick={handleHitung} disabled>
+              <button className="hitung-cicilan" onClick={handleHitung}>
                 <span>
                   <b>Hitung</b>
                 </span>

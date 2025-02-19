@@ -4,7 +4,15 @@ import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function Index(props) {
-  const { show, formKendaraan, onChange, dataArea, dataInsuranseType, selectedTab } = props;
+  const {
+    show,
+    formKendaraan,
+    onChange,
+    dataArea,
+    dataInsuranseType,
+    selectedTab,
+    setFormKendaraan
+  } = props;
 
   const [dataBrands, setDataBrands] = useState([]);
   const [dataModels, setDataModels] = useState([]);
@@ -14,19 +22,23 @@ export default function Index(props) {
 
   const handleChange = async (e, select) => {
     if (select === 'area') {
-      if (selectedTab === 'motor') {
-        const postData = {
-          group_object: '001',
-          vehicle_type: '3'
-        };
-        getDataBrands(postData);
-      } else if (selectedTab === 'mobil') {
-        const postData = {
-          group_object: '002',
-          vehicle_type: '1'
-        };
-        getDataBrands(postData);
-      }
+      const postData =
+        selectedTab === 'motor'
+          ? { group_object: '001', vehicle_type: '3' }
+          : { group_object: '002', vehicle_type: '1' };
+
+      getDataBrands(postData);
+
+      setFormKendaraan({
+        merk: '',
+        type: '',
+        tahun: '',
+        jenis_asuransi: '',
+        min_pengajuan: '',
+        max_pengajuan: '',
+        tenor: '',
+        total_pengajuan: ''
+      });
     } else if (select === 'brands') {
     }
     onChange(e);
