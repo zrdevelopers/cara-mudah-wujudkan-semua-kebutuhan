@@ -91,9 +91,23 @@ export default function Index(props) {
           Ajukan Sekarang
         </a>
       </div>
-      <div className="bannerresMob" style={{position: 'relative', margin: '15px',padding: '0px'}}>
-        <img style={{borderRadius: '10px'}} src="https://www.adira.co.id/assets/mpl/img/center-banner-mobile-v2.jpg" className="d-block w-100" alt="banner-multiguna-mobile" />
-        <a onClick={onClick}><img className="overlay-center" src="https://www.adira.co.id/assets/mpl/img/button-ajukan-header-mobile.png" alt="" /></a>
+      <div
+        className="bannerresMob"
+        style={{ position: 'relative', margin: '15px', padding: '0px' }}
+      >
+        <img
+          style={{ borderRadius: '10px' }}
+          src="https://www.adira.co.id/assets/mpl/img/center-banner-mobile-v2.jpg"
+          className="d-block w-100"
+          alt="banner-multiguna-mobile"
+        />
+        <a onClick={onClick}>
+          <img
+            className="overlay-center"
+            src="https://www.adira.co.id/assets/mpl/img/button-ajukan-header-mobile.png"
+            alt=""
+          />
+        </a>
       </div>
     </Fragment>
   );
