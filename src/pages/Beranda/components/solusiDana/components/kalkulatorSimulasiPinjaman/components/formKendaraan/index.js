@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export default function Index(props) {
   const { show } = props;
+  const domain = process.env.NEXT_PUBLIC_DOMAIN; // Access the environment variable
 
   const [formKendaraan, setFormKendaraan] = useState({
     nama: '',
@@ -16,8 +17,9 @@ export default function Index(props) {
   const [dataBrands, setDataBrands] = useState([]);
 
   const getDataArea = async () => {
+    
     axios
-      .get('/api/getAreas')
+      .get(domain + '/api/getAreas')
       .then((response) => {
         setDataArea(response?.data);
       })
@@ -28,7 +30,7 @@ export default function Index(props) {
 
   const getDataInsuranseType = async () => {
     axios
-      .get('/api/getInsuranseType')
+      .get(domain + '/api/getInsuranseType')
       .then((response) => {
         setDataInsuranseType(response?.data);
       })
