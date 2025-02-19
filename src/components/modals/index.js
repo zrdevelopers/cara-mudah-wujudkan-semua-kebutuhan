@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 
 const Index = (props) => {
   const { show, onClose, modalBody, modalFooter } = props;
@@ -14,7 +14,8 @@ const Index = (props) => {
   if (!show) return null;
 
   return (
-    <div className={'modal fade show'} id={'myModal'} tabIndex="-1" role="dialog">
+    <Fragment>
+    <div className={'modal fade show'} id={'myModal'} tabIndex="-1" role="dialog" >
       <div className="modal-dialog" role="document">
         <div className="modal-content mt13">
           <div className="modal-header center">
@@ -30,6 +31,8 @@ const Index = (props) => {
         </div>
       </div>
     </div>
+    <div class="modal-backdrop fade show"></div>
+    </Fragment>
   );
 };
 
