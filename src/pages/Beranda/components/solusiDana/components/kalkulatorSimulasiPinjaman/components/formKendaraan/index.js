@@ -7,11 +7,11 @@ export default function Index(props) {
   const {
     show,
     formKendaraan,
+    setFormKendaraan,
     onChange,
     dataArea,
     dataInsuranseType,
     selectedTab,
-    setFormKendaraan
   } = props;
 
   const [dataBrands, setDataBrands] = useState([]);
@@ -30,14 +30,7 @@ export default function Index(props) {
       getDataBrands(postData);
 
       setFormKendaraan({
-        merk: '',
-        type: '',
-        tahun: '',
-        jenis_asuransi: '',
-        min_pengajuan: '',
-        max_pengajuan: '',
-        tenor: '',
-        total_pengajuan: ''
+        ...formKendaraan
       });
     } else if (select === 'brands') {
     }
