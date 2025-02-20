@@ -35,19 +35,18 @@ export default function Index() {
     console.log('handleHitung', formKendaraan);
   };
 
-  const clearForm = async () => {
+  const resetFormKendaraan = (tab) =>
     setFormKendaraan({
       area: '',
       merk: '',
       type: '',
       tahun: '',
       jenis_asuransi: '',
-      min_pengajuan: 3000000,
-      max_pengajuan: 30000000,
+      min_pengajuan: tab === 'motor' ? 3000000 : 30000000,
+      max_pengajuan: tab === 'motor' ? 30000000 : 100000000,
       tenor: '',
-      total_pengajuan: 5000000
+      total_pengajuan: tab === 'motor' ? 5000000 : 50000000
     });
-  };
 
   const getDataArea = async () => {
     axios
@@ -91,13 +90,7 @@ export default function Index() {
           <div
             className={`pilih-bpkb ${selectedTab === 'motor' ? 'pilih_bpkb_active' : ''}`}
             onClick={() => {
-              setSelectedTab('motor'),
-                setFormKendaraan({
-                  ...formKendaraan,
-                  min_pengajuan: 3000000,
-                  max_pengajuan: 30000000,
-                  total_pengajuan: 5000000
-                });
+              setSelectedTab('motor'), resetFormKendaraan('motor');
             }}
           >
             Motor
@@ -105,13 +98,7 @@ export default function Index() {
           <div
             className={`pilih-bpkb ${selectedTab === 'mobil' ? 'pilih_bpkb_active' : ''}`}
             onClick={() => {
-              setSelectedTab('mobil'),
-                setFormKendaraan({
-                  ...formKendaraan,
-                  min_pengajuan: 30000000,
-                  max_pengajuan: 100000000,
-                  total_pengajuan: 50000000
-                });
+              setSelectedTab('mobil'), resetFormKendaraan('mobil');
             }}
           >
             Mobil

@@ -25,29 +25,24 @@ export default function Index(props) {
 
     if (name === 'area') {
       getDataBrands();
-      updateFormKendaraan();
+      resetFormKendaraan(['merk', 'type', 'tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
     } else if (name === 'merk') {
       getDataModels(value);
-      updateFormKendaraan();
+      resetFormKendaraan(['type', 'tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
     } else if (name === 'type') {
       getDataYears(value);
-      updateFormKendaraan();
+      resetFormKendaraan(['tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
     }
 
     onChange(e);
   };
 
-  const updateFormKendaraan = () => {
+  const resetFormKendaraan = (fields = []) => {
     setFormKendaraan((prev) => ({
       ...prev,
-      merk: '',
-      type: '',
-      tahun: '',
-      jenis_asuransi: '',
+      ...Object.fromEntries(fields.map((field) => [field, ''])),
       min_pengajuan: 3000000,
-      max_pengajuan: 30000000,
-      tenor: '',
-      total_pengajuan: 5000000
+      max_pengajuan: 30000000
     }));
   };
 
