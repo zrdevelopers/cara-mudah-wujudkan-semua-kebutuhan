@@ -20,14 +20,14 @@ export default function Index(props) {
   const [dataMaxPencairan, setDataMaxPencairan] = useState([]);
   const [dataMaxInstalments, setDataInstalments] = useState([]);
 
-  const handleChange = async (e, select) => {
-    if (select === 'area') {
-      const postData =
-        selectedTab === 'motor'
-          ? { group_object: '001', vehicle_type: '3' }
-          : { group_object: '002', vehicle_type: '1' };
+  const handleChange = async (e) => {
+    const { name, value } = e?.target;
 
-      getDataBrands(postData);
+    if (e.target.name === 'area') {
+      const formData = new FormData();
+      formData.append("group_object", selectedTab === "motor" ? '001' : '002');
+      formData.append("vehicle_type", selectedTab === "motor" ? 3 : 1);
+      getDataBrands(formData);
 
       setFormKendaraan({
         merk: '',
@@ -39,16 +39,41 @@ export default function Index(props) {
         tenor: '',
         total_pengajuan: 5000000
       });
-    } else if (select === 'brands') {
+    } else if (name === 'merk') {
+      const formData = new FormData();
+      formData.append("brand", value);
+      formData.append("vehicle_type", selectedTab === "motor" ? 3 : 1);
+      getDataModels(formData);
+
+      setFormKendaraan({
+        type: '',
+        tahun: '',
+        jenis_asuransi: '',
+        min_pengajuan: 3000000,
+        max_pengajuan: 30000000,
+        tenor: '',
+        total_pengajuan: 5000000
+      });
     }
     onChange(e);
   };
 
-  const getDataBrands = async (postData) => {
+  const getDataBrands = async (formData) => {
     axios
-      .post('/api/getBrands', postData)
+      .post('/api/getBrands', formData)
       .then((response) => {
         setDataBrands(response?.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  };
+
+  const getDataModels = async (formData) => {
+    axios
+      .post('/api/getModels', formData)
+      .then((response) => {
+        setDataModels(response?.data);
       })
       .catch((error) => {
         console.error('Error fetching data:', error);
@@ -64,7 +89,7 @@ export default function Index(props) {
             className="custom-select font-italic"
             name="area"
             value={formKendaraan?.area}
-            onChange={(e) => handleChange(e, 'area')}
+            onChange={handleChange}
           >
             <option disabled="" value="">
               Area Tempat Tinggal...
