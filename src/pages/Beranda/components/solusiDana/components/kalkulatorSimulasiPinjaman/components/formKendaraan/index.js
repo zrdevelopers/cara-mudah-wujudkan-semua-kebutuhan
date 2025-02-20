@@ -11,7 +11,7 @@ export default function Index(props) {
     onChange,
     dataArea,
     dataInsuranseType,
-    selectedTab,
+    selectedTab
   } = props;
 
   const [dataBrands, setDataBrands] = useState([]);
@@ -23,61 +23,62 @@ export default function Index(props) {
   const handleChange = async (e) => {
     const { name, value } = e?.target;
 
-    if (e.target.name === 'area') {
-      const formData = new FormData();
-      formData.append("group_object", selectedTab === "motor" ? '001' : '002');
-      formData.append("vehicle_type", selectedTab === "motor" ? 3 : 1);
-      getDataBrands(formData);
-
-      setFormKendaraan({
-        merk: '',
-        type: '',
-        tahun: '',
-        jenis_asuransi: '',
-        min_pengajuan: 3000000,
-        max_pengajuan: 30000000,
-        tenor: '',
-        total_pengajuan: 5000000
-      });
+    if (name === 'area') {
+      getDataBrands();
+      updateFormKendaraan();
     } else if (name === 'merk') {
-      const formData = new FormData();
-      formData.append("brand", value);
-      formData.append("vehicle_type", selectedTab === "motor" ? 3 : 1);
-      getDataModels(formData);
-
-      setFormKendaraan({
-        type: '',
-        tahun: '',
-        jenis_asuransi: '',
-        min_pengajuan: 3000000,
-        max_pengajuan: 30000000,
-        tenor: '',
-        total_pengajuan: 5000000
-      });
+      getDataModels(value);
+      updateFormKendaraan();
+    } else if (name === 'type') {
+      getDataYears(value);
+      updateFormKendaraan();
     }
+
     onChange(e);
   };
 
-  const getDataBrands = async (formData) => {
-    axios
-      .post('/api/getBrands', formData)
-      .then((response) => {
-        setDataBrands(response?.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
+  const updateFormKendaraan = () => {
+    setFormKendaraan((prev) => ({
+      ...prev,
+      merk: '',
+      type: '',
+      tahun: '',
+      jenis_asuransi: '',
+      min_pengajuan: 3000000,
+      max_pengajuan: 30000000,
+      tenor: '',
+      total_pengajuan: 5000000
+    }));
   };
 
-  const getDataModels = async (formData) => {
-    axios
-      .post('/api/getModels', formData)
-      .then((response) => {
-        setDataModels(response?.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
+  const fetchData = async (url, formData, setData) => {
+    try {
+      const response = await axios.post(url, formData);
+      setData(response?.data);
+    } catch (error) {
+      console.error(`Error fetching ${url}:`, error);
+    }
+  };
+
+  const getDataBrands = async () => {
+    const formData = new FormData();
+    formData.append('group_object', selectedTab === 'motor' ? '001' : '002');
+    formData.append('vehicle_type', selectedTab === 'motor' ? 3 : 1);
+    fetchData('/api/getBrands', formData, setDataBrands);
+  };
+
+  const getDataModels = async (brand) => {
+    const formData = new FormData();
+    formData.append('brand', brand);
+    formData.append('vehicle_type', selectedTab === 'motor' ? 3 : 1);
+    fetchData('/api/getModels', formData, setDataModels);
+  };
+
+  const getDataYears = async (brand) => {
+    const formData = new FormData();
+    formData.append('area', formKendaraan?.area);
+    formData.append('model', brand);
+    fetchData('/api/getYears', formData, setDataYears);
   };
 
   return (
