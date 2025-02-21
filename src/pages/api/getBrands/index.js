@@ -1,11 +1,8 @@
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     try {
+      console.log("Request Body:", req.body); // Debugging
       const { group_object, vehicle_type } = req.body;
-
-      // if (!group_object || !vehicle_type) {
-      //   return res.status(400).json({ error: "Missing required fields" });
-      // }
 
       const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
       const response = await fetch(domainApi + '/Api/getBrands', {
@@ -21,12 +18,6 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
-
-      // Atur CORS agar bisa diakses dari mana saja
-      // res.setHeader('Access-Control-Allow-Origin', '*');
-      // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-      // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
       return res.status(200).json(data);
     } catch (error) {
       return res.status(500).json({ message: 'Error fetching data', error: error.message });
