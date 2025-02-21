@@ -48,7 +48,9 @@ export default function Index(props) {
 
   const fetchData = async (url, formData, setData) => {
     try {
-      const response = await axios.post(url, formData);
+      const response = await axios.post(url, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
       setData(response?.data);
     } catch (error) {
       console.error(`Error fetching ${url}:`, error);
