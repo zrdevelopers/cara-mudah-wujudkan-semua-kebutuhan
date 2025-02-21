@@ -72,7 +72,6 @@ export default function Index() {
 
   useEffect(() => {
     getDataArea();
-    getDataInsuranseType();
   }, []);
 
   return (
@@ -98,7 +97,8 @@ export default function Index() {
           <div
             className={`pilih-bpkb ${selectedTab === 'mobil' ? 'pilih_bpkb_active' : ''}`}
             onClick={() => {
-              setSelectedTab('mobil'), resetFormKendaraan('mobil');
+              getDataInsuranseType(),
+              setSelectedTab('mobil'), resetFormKendaraan('mobil')
             }}
           >
             Mobil
