@@ -6,5 +6,13 @@
     "@next/next/no-sync-scripts": "off",
     "react-hooks/exhaustive-deps": "off",
     "react-hooks/rules-of-hooks": "off"
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "globals": {
+    "Promise": "readonly"
   }
 }

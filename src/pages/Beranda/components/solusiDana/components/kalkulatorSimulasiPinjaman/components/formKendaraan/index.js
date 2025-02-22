@@ -1,6 +1,6 @@
 'use client';
 
-import { Fragment, useState, useEffect } from 'react';
+import { Fragment, useState } from 'react';
 import axios from 'axios';
 
 export default function Index(props) {
@@ -25,13 +25,13 @@ export default function Index(props) {
 
     if (name === 'area') {
       getDataBrands();
-      resetFormKendaraan(['merk', 'type', 'tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
+      resetFormKendaraan(['merk', 'type', 'tahun', 'jenis_asuransi', 'tenor']);
     } else if (name === 'merk') {
       getDataModels(value);
-      resetFormKendaraan(['type', 'tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
+      resetFormKendaraan(['type', 'tahun', 'jenis_asuransi', 'tenor']);
     } else if (name === 'type') {
       getDataYears(value);
-      resetFormKendaraan(['tahun', 'jenis_asuransi', 'tenor', 'total_pengajuan']);
+      resetFormKendaraan(['tahun', 'jenis_asuransi', 'tenor']);
     }
 
     onChange(e);
@@ -41,8 +41,9 @@ export default function Index(props) {
     setFormKendaraan((prev) => ({
       ...prev,
       ...Object.fromEntries(fields.map((field) => [field, ''])),
-      min_pengajuan: 3000000,
-      max_pengajuan: 30000000
+      min_pengajuan: selectedTab === 'motor' ? 3000000 : 30000000,
+      max_pengajuan: selectedTab === 'motor' ? 30000000 : 100000000,
+      total_pengajuan: selectedTab === 'motor' ? 5000000 : 50000000
     }));
   };
 

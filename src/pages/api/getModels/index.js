@@ -11,10 +11,10 @@ export default async function handler(req, res) {
       const formidable = (await import('formidable')).default;
       
       const form = formidable();
-      const [fields, files] = await new Promise((resolve, reject) => {
-        form.parse(req, (err, fields, files) => {
+      const fields = await new Promise((resolve, reject) => {
+        form.parse(req, (err, fields) => {
           if (err) reject(err);
-          else resolve([fields, files]);
+          else resolve(fields);
         });
       });
 
@@ -28,7 +28,7 @@ export default async function handler(req, res) {
 
       // Kirim request ke API eksternal
       const domainApi = process.env.NEXT_PUBLIC_DOMAIN_API;
-      const response = await fetch(domainApi + '/Api/getModels', {
+      const response = await fetch(`${domainApi}/Api/getModels`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -51,4 +51,3 @@ export default async function handler(req, res) {
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
-

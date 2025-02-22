@@ -9,6 +9,7 @@ export default function Index() {
   const [selectedTab, setSelectedTab] = useState('motor'); // State untuk tab aktif
   const [dataArea, setDataArea] = useState([]);
   const [dataInsuranseType, setDataInsuranseType] = useState([]);
+  const [isFormValid, setIsFormValid] = useState(false); // State untuk tombol
 
   const [formKendaraan, setFormKendaraan] = useState({
     area: '',
@@ -31,8 +32,25 @@ export default function Index() {
     }));
   };
 
+  const validateForm = () => {
+    const commonFields = 
+    formKendaraan.area &&
+    formKendaraan.merk &&
+    formKendaraan.type &&
+    formKendaraan.tahun &&
+    formKendaraan.tenor &&
+    formKendaraan.total_pengajuan;
+
+    if (selectedTab === 'motor') return commonFields;
+    if (selectedTab === 'mobil') return commonFields && formKendaraan.jenis_asuransi;
+
+    return false;
+  };
+
   const handleHitung = () => {
-    console.log('handleHitung', formKendaraan);
+    if (isFormValid) {
+      console.log('handleHitung', formKendaraan);
+    }
   };
 
   const resetFormKendaraan = (tab) =>
@@ -72,7 +90,8 @@ export default function Index() {
 
   useEffect(() => {
     getDataArea();
-  }, []);
+    setIsFormValid(validateForm());
+  }, [formKendaraan, selectedTab]);
 
   return (
     <Fragment>
@@ -154,7 +173,7 @@ export default function Index() {
               </div>
             </div>
             <div className="col-4">
-              <button className="hitung-cicilan" onClick={handleHitung}>
+              <button className="hitung-cicilan" onClick={handleHitung} disabled={!isFormValid}>
                 <span>
                   <b>Hitung</b>
                 </span>
