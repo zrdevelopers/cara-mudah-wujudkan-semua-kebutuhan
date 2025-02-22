@@ -91,7 +91,7 @@ export default function Index() {
   useEffect(() => {
     getDataArea();
     setIsFormValid(validateForm());
-  }, [formKendaraan, selectedTab]);
+  }, []); //formKendaraan, selectedTab
 
   return (
     <Fragment>
